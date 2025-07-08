@@ -1,11 +1,15 @@
-<h1>Products</h1>
-
-<%= link_to "New product", new_product_path %>
-
-<div id="products">
-  <% @products.each do |product| %>
-    <div>
-      <%= link_to product.name, product %>
-    </div>
-  <% end %>
+<div class="flex flex-col rounded-lg">
+  <div class="flex items-center justify-center p-3 border-be prose">
+    <h1 class="text-3xl font_bold ">Products</h1>
+  </div>
+  <%= link_to "New product", new_product_path, class: "btn btn--positive"%>
+  <div class="flex items-center justify-center p-3 prose" id="products" >
+    <ul>
+      <% @products.each do |product| %>
+        <li>
+          <%= link_to product.name, product %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>
