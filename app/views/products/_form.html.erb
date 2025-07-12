@@ -10,6 +10,11 @@
     	<%= f.label :name, class: "text-sm font-medium leading-none" %>
     	<%= f.text_field :name, placeholder: "Name of your product", class: "input" %>
     </div>
+
+    <div> 
+      <%= f.label :description %>
+      <%= f.rich_text_area :description %>
+    </div>
   </div>
 
   <div class="flex items-center justify-between">

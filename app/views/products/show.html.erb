@@ -5,11 +5,15 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th><%= @product.name %></th>
+      <% cache @product do %>
+        <th><%= @product.name %></th>
+        <th><%= @product.description %></th>
+      <% end %>
     </tr>
   </tbody>
 </table>
