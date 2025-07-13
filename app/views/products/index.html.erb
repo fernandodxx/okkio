@@ -1,15 +1,24 @@
 <div class="flex flex-col rounded-lg">
-  <div class="flex items-center justify-between p-3 border-be ">
-    <h1 class="text-3xl font_bold ">Products</h1>
-    <%= link_to "New product", new_product_path, class: "btn btn--positive" if authenticated? %>
+  <!-- Header com título e botão -->
+  <div class="flex items-center justify-between p-4 border-be">
+    <h1 class="text-xl font-bold">Products</h1>
+    <% if authenticated? %>
+      <%= link_to "New product", new_product_path, class: "btn btn--positive" %>
+    <% end %>
   </div>
-  <div class="flex items-center justify-center p-3 prose" id="products" >
-    <ul>
-      <% @products.each do |product| %>
-        <li>
-          <%= link_to product.name, product %>
-        </li>
-      <% end %>
-    </ul>
+  
+  <div id="products" class="flex flex-wrap gap p-2 justify-center">
+    <% @products.each do |product| %>
+      <div class="card p-4 text-center rounded-md shadow-sm border bg-main" style="width: 300px;">
+        <% if product.featured_image.attached? %>
+          <%= image_tag product.featured_image.variant(resize_to_fill: [300, 200]),
+                        class: "rounded-md w-full h-48 object-cover" %>
+        <% end %>
+        <h2 class="text-lg font-bold text-primary">
+          <%= link_to product.name, product, class: "link" %>
+        </h2>
+      </div>
+    <% end %>
   </div>
+
 </div>
