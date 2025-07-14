@@ -25,19 +25,20 @@
   </head>
 
   <body class="header-layout">
+  
+
     <header id="header">
-      <div class="container">
+      <div class="flex justify-between container">
         <div class="flex items-center gap">
-          <a href="/" class="brand">
-            <%= image_tag "/icon.svg", alt: "Store Okkio", width: "32", height: "32" %>
-          </a>
+          <%= image_tag "/icon.svg", alt: "Store Okkio", width: "32", height: "32" %>
+          <%= link_to root_path do %>
+            <h1>Store Okkio</h1>
+          <% end %>
         </div>
-        Store Okkio
+      <nav class="flex gap ">
+        <%= button_to "Log out", session_path, method: :delete if authenticated? %>
+      </nav>
       </div>
-        <nav>
-          <%= link_to "Home", root_path %>
-          <%= button_to "Log out", session_path, method: :delete if authenticated? %>
-        </nav>
     </header>
 
     <main id="main">
