@@ -1,6 +1,6 @@
 <div class="flex flex-col rounded-lg">
   <div class="flex items-center justify-between p-4 border-be">
-    <h1 class="text-xl font-bold">Products</h1>
+    <h1 class="text-xl font-bold"><%= t ".title" %></h1>
     <% if authenticated? %>
       <%= link_to "New product", new_product_path, class: "btn btn--positive" %>
     <% end %>
