@@ -1,6 +1,6 @@
 <%= form_with model: product, class: "flex flex-col gap-6 p-6 rounded-lg " do |f| %>
 
-  <!-- Cabeçalho -->
+  
   <header class="flex flex-col gap-1 mb-4">
     <h2 class="text-2xl font-bold text-primary">Produto</h2>
     <p class="text-sm text-subtle">Preencha os campos abaixo para adicionar seu produto à loja.</p>
@@ -11,7 +11,7 @@
     <%= f.file_field :featured_image, accept: "image/*" %>
   </div>
 
-  <!-- Campos -->
+  
   <div class="flex flex-col gap-4">
     <div class="flex flex-col gap-1">
       <%= f.label :name, "Nome do Produto", class: "text-sm font-medium" %>
@@ -22,9 +22,14 @@
       <%= f.label :description, "Descrição", class: "text-sm font-medium" %>
       <%= f.rich_text_area :description, class: "input", placeholder: "Descreva seu produto com detalhes." %>
     </div>
+
+    <div class="flex flex-col gap-1">
+      <%= f.label :inventory_count %>
+      <%= f.number_field :inventory_count, class: "input", placeholder: "Quantidade em estoque."%>
+    </div>
   </div>
 
-  <!-- Botões -->
+  
   <div class="flex items-center justify-between mt-6">
     <%= link_to "Cancelar", products_path, class: "btn btn--secondary" %>
     <%= f.submit "Salvar produto", class: "btn btn--primary" %>
